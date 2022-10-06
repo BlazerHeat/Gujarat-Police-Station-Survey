@@ -33,10 +33,14 @@ app.use('/questions', questionsRoute);
 app.use('/responses', responseRoute);
 
 if (!isDevelopmentMode) {
-	app.use(express.static(path.resolve('./client/dist/angular_survey')));
+	// app.use(express.static(path.resolve('./client/dist/angular_survey')));
+	app.use(express.static('public'))
 
-	app.get('*', (req, res) => {
-		res.status(202).sendFile(path.resolve('./client/dist/angular_survey/index.html'));
+	// app.get('*', (req, res) => {
+	// 	res.status(202).sendFile(path.resolve('./client/dist/angular_survey/index.html'));
+	// });
+	app.get('/', (req, res) => {
+		res.sendFile('index.html', { root: path.join(__dirname, 'public') });
 	});
 }
 
