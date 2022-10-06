@@ -10,5 +10,11 @@
             "src": "/(.*)",
             "dest": "app.js"
         }
+    ],
+    "rewrites": [
+        {
+            "source": "/client/dist/angular_survey/(.*)",
+            "destination": "/dist"
+        }
     ]
 }
