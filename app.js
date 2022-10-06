@@ -17,17 +17,12 @@ connectDB();
 const app = express();
 const PORT = process.env.PORT || 8080;
 
-// if (isDevelopmentMode) {
-// 	app.use(cors({
-// 		origin: 'http://localhost:4200',
-// 		credentials: true
-// 	}))
-// }
-
-app.use(cors({
-	origin: '*',
-	credentials: true
-}))
+if (isDevelopmentMode) {
+	app.use(cors({
+		origin: 'http://localhost:4200',
+		credentials: true
+	}))
+}
 
 app.use(cookies());
 app.use(express.json());
