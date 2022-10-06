@@ -27,6 +27,7 @@ router.post('/', (req, res) => {
     });
 });
 
+
 router.delete('/:id', (req, res) => {
     const { id } = req.params;
 
@@ -35,7 +36,7 @@ router.delete('/:id', (req, res) => {
     }).catch(err => {
         console.error(err);
         res.status(500).json(err);
-    })
+    });
 });
 
 
