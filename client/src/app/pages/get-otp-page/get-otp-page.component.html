@@ -1,0 +1,30 @@
+<div class="container">
+  <app-header></app-header>
+
+  <div class="mb-3 form-input">
+    <label for="name" class="form-label">Name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="name"
+      placeholder="Please Enter your Name"
+      [(ngModel)]="name"
+      required
+    />
+  </div>
+  <div class="form-input">
+    <label for="phone" class="form-label">Phone No.</label>
+    <input
+      type="tel"
+      class="form-control"
+      id="phone"
+      placeholder="please Enter your valid Phone number"
+      [(ngModel)]="phoneNo"
+      required
+    />
+  </div>
+
+  <button type="button" class="btn btn-success otp-btn" (click)="getOTP()">
+    Get OTP
+  </button>
+</div>

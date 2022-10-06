@@ -1,0 +1,15 @@
+.container {
+    padding: 1em;
+}
+.buttons {
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+
+    margin-top: 30px;
+}
+
+.title {
+    margin-bottom: 20px;
+}

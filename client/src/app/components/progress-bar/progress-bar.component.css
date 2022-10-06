@@ -1,0 +1,7 @@
+.progress {
+  margin: 40px 0;
+  background-color: rgba(128, 128, 128, 0.287);
+  height: 20px;
+
+  font-size: 14px;
+}

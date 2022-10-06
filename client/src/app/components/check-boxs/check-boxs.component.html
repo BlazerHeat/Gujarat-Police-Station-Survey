@@ -1,0 +1,16 @@
+<ng-container *ngFor="let option of options">
+    <div class="form-check">
+        <input
+            class="form-check-input"
+            type="checkbox"
+            [name]="questionId"
+            [id]="option._id"
+            [checked]="option.checked"
+            [(ngModel)]="option.checked"
+            (change)="onChange()"
+        />
+        <label class="form-check-label" [for]="option._id">
+            {{ option.text }}
+        </label>
+    </div>
+</ng-container>

@@ -1,0 +1,28 @@
+.container {
+    height: 100vh;
+    width: 100%;
+
+    padding: 1em;
+
+    text-align: center;
+}
+
+#thank-you-img {
+    width: 50%;
+    max-width: 300px;
+    margin-bottom: 10px;
+}
+
+.thank-you-sec {
+    margin: auto;
+    margin-top: 1em;
+    max-width: 500px;
+    background-color: #6c6c6c44;
+    padding: 1em;
+
+    border-radius: 7px;
+}
+
+.close-btn {
+    margin-top: 10px;
+}

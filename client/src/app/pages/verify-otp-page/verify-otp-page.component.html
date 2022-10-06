@@ -1,0 +1,17 @@
+<div class="container">
+    <app-header></app-header>
+    <div class="mb-3 form-input">
+        <label for="name" class="form-label">Enter OTP:</label>
+        <input
+            type="text"
+            class="form-control"
+            id="otp"
+            placeholder="Please Enter your OTP"
+            [(ngModel)]="otp"
+            required
+        />
+    </div>
+    <button type="button" class="btn btn-success otp-btn" (click)="verifyOTP()">
+        Verify OTP
+    </button>
+</div>

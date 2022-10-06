@@ -1,0 +1,15 @@
+<ng-container *ngFor="let option of options">
+    <div class="form-check">
+        <input
+            class="form-check-input"
+            type="radio"
+            [id]="option._id"
+            [name]="questionId"
+            (change)="onChange(option)"
+            [checked]="option._id === selectedOptionId"
+        />
+        <label class="form-check-label" [for]="option._id">
+            {{ option.text }}
+        </label>
+    </div>
+</ng-container>

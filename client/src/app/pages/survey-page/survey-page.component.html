@@ -1,0 +1,79 @@
+<div class="container">
+    <div *ngIf="isLoading; then isLoadingBlock; else doneLoadingBlock"></div>
+    <ng-template #isLoadingBlock>
+        <app-loading></app-loading>
+    </ng-template>
+    <ng-template #doneLoadingBlock>
+        <app-progress-bar
+            [progressPercent]="progressPercent"
+            [questionNumber]="currentQuestion + 1"
+        ></app-progress-bar>
+
+        <h1 class="title">{{ currentQuestion + 1 }}) {{ question }}</h1>
+
+        <form (submit)="handleSubmit($event)">
+            <ng-container [ngSwitch]="questionType">
+                <app-check-boxs
+                    *ngSwitchCase="'checkbox'"
+                    [options]="questionOptions!"
+                    [questionId]="questionId"
+                ></app-check-boxs>
+                <app-radio-buttons
+                    *ngSwitchCase="'radiobutton'"
+                    [options]="questionOptions!"
+                    [questionId]="questionId"
+                ></app-radio-buttons>
+                <app-text-area
+                    *ngSwitchCase="'text'"
+                    [questionId]="questionId"
+                ></app-text-area>
+            </ng-container>
+
+            <div class="buttons">
+                <div
+                    *ngIf="
+                        currentQuestion == 0;
+                        then homeBlock;
+                        else previousBlock
+                    "
+                ></div>
+
+                <ng-template #homeBlock>
+                    <a class="btn btn-secondary" routerLink="/">Home</a>
+                </ng-template>
+                <ng-template #previousBlock>
+                    <button
+                        *ngIf="currentQuestion > 0"
+                        type="button"
+                        class="btn btn-primary"
+                        (click)="previousQuestion()"
+                    >
+                        Previous
+                    </button>
+                </ng-template>
+
+                <div
+                    *ngIf="
+                        currentQuestion == questions.length - 1;
+                        then submitBlock;
+                        else nextBlock
+                    "
+                ></div>
+                <ng-template #nextBlock>
+                    <button
+                        type="button"
+                        class="btn btn-primary"
+                        (click)="nextQuestion()"
+                    >
+                        Next
+                    </button>
+                </ng-template>
+                <ng-template #submitBlock>
+                    <button type="submit" class="btn btn-success">
+                        Submit
+                    </button>
+                </ng-template>
+            </div>
+        </form>
+    </ng-template>
+</div>
