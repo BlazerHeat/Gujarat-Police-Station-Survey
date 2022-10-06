@@ -1,4 +1,4 @@
-const { OTP_LIFE } = 120;
+const OTP_LIFE = 120;
 const { createClient } = require('redis');
 
 const REDIS_URI = process.env.REDIS_URI || null;
