@@ -44,7 +44,7 @@ if (!isDevelopmentMode) {
 	// 	res.sendFile('index.html', { root: path.join(__dirname, 'public') });
 	// });
 	app.get('/', (req, res) => {
-		res.sendFile('index.html', { root: path.join(__dirname, 'client/dist/angular_survey') });
+		res.sendFile('index.html', { root: path.join(__dirname, 'client', 'dist', 'angular_survey') });
 	});
 }
 
