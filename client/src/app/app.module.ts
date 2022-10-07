@@ -20,6 +20,7 @@ import { LoadingComponent } from './components/loading/loading.component';
 import { ThankYouPageComponent } from './pages/thank-you-page/thank-you-page.component';
 import { OtpService } from './services/otp.service';
 import { VerifyOtpPageComponent } from './pages/verify-otp-page/verify-otp-page.component';
+import { ResponsesPageComponent } from './pages/responses-page/responses-page.component';
 
 @NgModule({
     declarations: [
@@ -36,6 +37,7 @@ import { VerifyOtpPageComponent } from './pages/verify-otp-page/verify-otp-page.
         LoadingComponent,
         ThankYouPageComponent,
         VerifyOtpPageComponent,
+        ResponsesPageComponent,
     ],
     imports: [BrowserModule, AppRouting, FormsModule, HttpClientModule],
     providers: [SurveyFormService, QuestionService, OtpService],

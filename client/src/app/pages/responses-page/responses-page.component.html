@@ -1,0 +1,9 @@
+<div class="container">
+    <div *ngIf="loading; then isLoadingBlock; else doneLoadingBlock"></div>
+    <ng-template #isLoadingBlock>
+        <app-loading></app-loading>
+    </ng-template>
+    <ng-template #doneLoadingBlock>
+        {{ responses | json }}
+    </ng-template>
+</div>
