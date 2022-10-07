@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
 router.post('/', (req, res) => {
     const { question, type, options } = req.body;
 
-    if (!question || !type || !options) {
+    if (!question || !type) {
         res.status(400).send('Invaild query params');
         return;
     }

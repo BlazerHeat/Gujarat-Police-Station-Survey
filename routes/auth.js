@@ -3,10 +3,6 @@ const router = express.Router();
 const twilio = require('../handlers/twilio');
 const { addOtp, getOtp, removeOtp } = require('../handlers/otp');
 
-router.get('/', (req, res) => {
-    res.status(202).send('<h1>Hello from auth route!</h1>');
-});
-
 router.post('/sendotp', (req, res) => {
     const { phoneNum } = req.body;
 

@@ -2,7 +2,11 @@ require('dotenv').config();
 
 const express = require('express');
 const path = require('path');
+
+
 const connectDB = require('./database/connection');
+
+
 const authRoute = require('./routes/auth');
 const responseRoute = require('./routes/responses');
 const questionsRoute = require('./routes/questions');
@@ -13,6 +17,7 @@ const isDevelopmentMode = process.env.NODE_ENV === 'development';
 
 
 connectDB();
+
 
 const app = express();
 const PORT = process.env.PORT || 8080;
@@ -33,12 +38,8 @@ app.use('/questions', questionsRoute);
 app.use('/responses', responseRoute);
 
 if (!isDevelopmentMode) {
-	// app.use(express.static(path.resolve('./client/dist/angular_survey')));
 	app.use(express.static('public'));
 
-	// app.get('*', (req, res) => {
-	// 	res.status(202).sendFile(path.resolve('./client/dist/angular_survey/index.html'));
-	// });
 	app.get('/', (req, res) => {
 		res.sendFile('index.html', { root: path.join(__dirname, 'public') });
 	});

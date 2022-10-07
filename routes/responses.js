@@ -1,6 +1,13 @@
 const express = require('express');
 const router = express.Router();
-const responses = require('../database/models/response');
+const Responses = require('../database/models/response');
+
+
+router.get('/', async (req, res) => {
+    const data = await Responses.find();
+
+    res.status(200).json({ responses: data });
+})
 
 
 router.post('/', async (req, res) => {
@@ -8,7 +15,7 @@ router.post('/', async (req, res) => {
 
     console.log(rest);
 
-    await new responses({ phoneNum, name, response: rest }).save();
+    await new Responses({ phoneNum, name, response: rest }).save();
 
     res.status(200).end();
 })
