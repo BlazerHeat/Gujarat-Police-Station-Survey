@@ -9,14 +9,24 @@ import { VerifyOtpResponse } from 'src/app/types/verifyOtpRes';
     templateUrl: './verify-otp-page.component.html',
     styleUrls: ['./verify-otp-page.component.css'],
 })
-export class VerifyOtpPageComponent {
+export class VerifyOtpPageComponent implements OnInit {
     otp: string = '';
+    buckleNumber: string = '';
 
     constructor(
         private otpService: OtpService,
         private router: Router,
         private surveyFormService: SurveyFormService
     ) {}
+
+    ngOnInit(): void {
+        const buckleNumber = localStorage.getItem('buckleNumber');
+        if (buckleNumber == null) {
+            alert('Buckle number not found, please try again!');
+            this.router.navigate(['/']);
+            return;
+        }
+    }
 
     verifyOTP() {
         if (this.otp.length !== 4) {
@@ -46,6 +56,7 @@ export class VerifyOtpPageComponent {
                                 return;
                             },
                             complete: () => {
+                                localStorage.removeItem('buckleNumber');
                                 localStorage.removeItem('phoneNum');
                                 localStorage.removeItem('name');
                                 this.router.navigate(['/thankyou']);
@@ -53,7 +64,7 @@ export class VerifyOtpPageComponent {
                         };
 
                         this.surveyFormService
-                            .submitResponse(phoneNum, name)
+                            .submitResponse(phoneNum, name, this.buckleNumber)
                             .subscribe(surveyObserver);
                         break;
                 }

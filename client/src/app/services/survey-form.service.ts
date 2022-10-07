@@ -30,11 +30,12 @@ export class SurveyFormService {
         this.surveyFormData[questionId] = text;
     }
 
-    submitResponse(phoneNum: string, name: string) {
+    submitResponse(phoneNum: string, name: string, buckleNumber: string) {
         const payload = {
             ...this.surveyFormData,
             phoneNum,
             name,
+            buckleNumber,
         };
         console.log(payload);
         return this.http.post(this.BASE_URL + '/responses', payload);
