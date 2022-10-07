@@ -8,14 +8,14 @@ import { ResponsesService } from 'src/app/services/responses.service';
 })
 export class ResponsesPageComponent implements OnInit {
     loading = true;
-    responses = {};
+    responses = '';
 
     constructor(private responsesService: ResponsesService) {}
 
     ngOnInit(): void {
         const observer = {
             next: (res: Object) => {
-                this.responses = res;
+                this.responses = JSON.stringify(res, null, 4);
             },
             error: (err: Error) => {
                 alert('Error fetching responses!');

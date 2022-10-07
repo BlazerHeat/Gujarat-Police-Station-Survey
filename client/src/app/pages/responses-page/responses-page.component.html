@@ -4,6 +4,6 @@
         <app-loading></app-loading>
     </ng-template>
     <ng-template #doneLoadingBlock>
-        {{ responses | json }}
+        <p style="display: block" [innerText]="responses"></p>
     </ng-template>
 </div>
