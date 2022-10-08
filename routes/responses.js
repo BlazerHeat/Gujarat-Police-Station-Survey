@@ -11,11 +11,11 @@ router.get('/', async (req, res) => {
 
 
 router.post('/', async (req, res) => {
-    const { phoneNum, name, ...rest } = req.body;
+    const { phoneNum, name, buckleNumber, ...rest } = req.body;
 
     console.log(rest);
 
-    await new Responses({ phoneNum, name, response: rest }).save();
+    await new Responses({ phoneNum, name, buckleNumber, response: rest }).save();
 
     res.status(200).end();
 })
